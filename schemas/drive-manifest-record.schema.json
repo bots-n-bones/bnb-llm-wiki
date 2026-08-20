@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bots-n-bones.local/schemas/drive-manifest-record.schema.json",
+  "title": "Google Drive inventory record",
+  "type": "object",
+  "required": [
+    "snapshot_id",
+    "captured_at",
+    "drive_file_id",
+    "name",
+    "mime_type",
+    "url",
+    "classification"
+  ],
+  "properties": {
+    "snapshot_id": { "type": "string", "minLength": 1 },
+    "captured_at": { "type": "string", "format": "date-time" },
+    "drive_file_id": { "type": "string", "minLength": 1 },
+    "name": { "type": "string" },
+    "original_path": { "type": ["string", "null"] },
+    "mime_type": { "type": "string" },
+    "url": { "type": "string" },
+    "parent_ids": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "size": { "type": ["integer", "null"], "minimum": 0 },
+    "created_time": { "type": ["string", "null"] },
+    "modified_time": { "type": ["string", "null"] },
+    "drive_version": { "type": ["string", "integer", "null"] },
+    "md5_checksum": { "type": ["string", "null"] },
+    "export_sha256": { "type": ["string", "null"] },
+    "classification": {
+      "enum": [
+        "discovered",
+        "canonical-candidate",
+        "supporting-source",
+        "duplicate-candidate",
+        "superseded-candidate",
+        "archive-only",
+        "restricted",
+        "out-of-scope"
+      ]
+    },
+    "duplicate_group": { "type": ["string", "null"] },
+    "preferred_source_id": { "type": ["string", "null"] },
+    "notes": { "type": ["string", "null"] }
+  },
+  "additionalProperties": false
+}

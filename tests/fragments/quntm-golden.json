@@ -1,0 +1,34 @@
+{
+  "schema": "hermes-kb-golden-fragment/v1",
+  "project": "quntm",
+  "queries": [
+    {
+      "query": "Какие документы по Quntm сейчас есть в Wiki?",
+      "expected_path": "projects/quntm/README.md"
+    },
+    {
+      "query": "Какую исходную проблему Savimpex описывает кейс?",
+      "expected_path": "projects/quntm/01-knowledge/savimpex-case.md"
+    },
+    {
+      "query": "Какая последовательность offers validation proposals orders shipments описана в кейсе?",
+      "expected_path": "projects/quntm/01-knowledge/savimpex-case.md"
+    },
+    {
+      "query": "Какие этапы 13-недельного внедрения указаны для Savimpex?",
+      "expected_path": "projects/quntm/01-knowledge/savimpex-case.md"
+    },
+    {
+      "query": "Какие метрики эффективности заявляет кейс Savimpex и подтверждены ли они?",
+      "expected_path": "projects/quntm/01-knowledge/savimpex-case.md"
+    },
+    {
+      "query": "Какие направления логистических услуг покрывает анкета Quntm?",
+      "expected_path": "projects/quntm/01-knowledge/service-discovery.md"
+    },
+    {
+      "query": "Что нужно подтвердить перед публикацией SLA и маршрутов Quntm?",
+      "expected_path": "projects/quntm/01-knowledge/service-discovery.md"
+    }
+  ]
+}

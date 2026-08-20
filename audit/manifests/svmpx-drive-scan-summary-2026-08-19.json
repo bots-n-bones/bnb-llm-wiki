@@ -1,0 +1,119 @@
+{
+  "snapshot_id": "svmpx-drive-2026-08-19T151054Z",
+  "captured_at": "2026-08-19T15:10:54.108Z",
+  "root": {
+    "drive_file_id": "1xPXXJGy96dEsQkMoAHWQ3MVluSup0-YC",
+    "name": "SVMPX",
+    "url": "https://drive.google.com/drive/folders/1xPXXJGy96dEsQkMoAHWQ3MVluSup0-YC"
+  },
+  "coverage_status": "partial-connector-snapshot",
+  "method": "Recursive google_drive.list_folder, top_k=1000, with paths/parents reconstructed from traversal",
+  "connector_limits": {
+    "list_folder_pagination": false,
+    "direct_child_request_limit": 1000,
+    "search_status": "unavailable during this run (HTTP 403 from connector transport)",
+    "checksums_returned": false,
+    "versions_returned": false
+  },
+  "current_snapshot": {
+    "objects": 246,
+    "folders": 100,
+    "files": 146,
+    "folders_opened": 101,
+    "folder_errors": [],
+    "folders_at_limit": [],
+    "known_size_bytes": 494519504,
+    "mime_counts": {
+      "application/vnd.google-apps.document": 23,
+      "text/csv": 1,
+      "application/octet-stream": 5,
+      "application/zip": 1,
+      "text/markdown": 41,
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": 6,
+      "text/x-ruby-script": 1,
+      "text/html": 4,
+      "image/png": 62,
+      "application/pdf": 1,
+      "video/mp4": 1
+    },
+    "top_level_aggregates": {
+      "08_meetings": {
+        "objects": 1,
+        "folders": 1,
+        "files": 0,
+        "known_size_bytes": 0
+      },
+      "07_links": {
+        "objects": 2,
+        "folders": 1,
+        "files": 1,
+        "known_size_bytes": 1024
+      },
+      "00_data": {
+        "objects": 79,
+        "folders": 61,
+        "files": 18,
+        "known_size_bytes": 32886367
+      },
+      "02_screenshots": {
+        "objects": 69,
+        "folders": 6,
+        "files": 63,
+        "known_size_bytes": 40391333
+      },
+      "06_old_notion": {
+        "objects": 30,
+        "folders": 6,
+        "files": 24,
+        "known_size_bytes": 70487
+      },
+      "05_backups": {
+        "objects": 8,
+        "folders": 1,
+        "files": 7,
+        "known_size_bytes": 171131
+      },
+      "04_ideas": {
+        "objects": 10,
+        "folders": 2,
+        "files": 8,
+        "known_size_bytes": 721823
+      },
+      "01_documentation": {
+        "objects": 24,
+        "folders": 1,
+        "files": 23,
+        "known_size_bytes": 160087
+      },
+      "03_templates": {
+        "objects": 23,
+        "folders": 21,
+        "files": 2,
+        "known_size_bytes": 420117252
+      }
+    },
+    "empty_folders_returned": 68
+  },
+  "prior_verified_baseline_reference": {
+    "path": "audit/drive-baseline-summary-2026-08-19.md",
+    "objects": 1466,
+    "folders": 180,
+    "files": 1286,
+    "method": "86 folders opened recursively to depth 4",
+    "discrepancy_objects": 1220
+  },
+  "coverage_notes": [
+    "No current folder returned 1000 children, but absence of a pagination cursor does not prove provider completeness.",
+    "Current recursive listing conflicts materially with the earlier same-day baseline; 68 discovered folders currently returned no children.",
+    "The raw JSONL is therefore a reproducible connector snapshot, not a complete authoritative Drive inventory.",
+    "Gate 0 requires paginated Drive metadata/API ingestion and checksum or export-hash capture."
+  ],
+  "duplicate_summary": {
+    "probable_exact_metadata_groups": 3,
+    "probable_exact_metadata_files": 9,
+    "name_collision_groups": 5,
+    "name_collision_files": 17,
+    "repeated_drive_ids": 0
+  }
+}
+

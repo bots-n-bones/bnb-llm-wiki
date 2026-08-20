@@ -1,0 +1,34 @@
+{
+  "schema": "hermes-kb-golden-fragment/v1",
+  "project": "ursus",
+  "queries": [
+    {
+      "query": "Какие бренд-материалы Ursus Trade найдены?",
+      "expected_path": "projects/ursus/README.md"
+    },
+    {
+      "query": "Как выглядит знак Ursus Trade и какое у него охранное поле?",
+      "expected_path": "projects/ursus/01-knowledge/brand-system.md"
+    },
+    {
+      "query": "Какие цвета входят в палитру Ursus Trade?",
+      "expected_path": "projects/ursus/01-knowledge/brand-system.md"
+    },
+    {
+      "query": "Когда используются Golos Text Bold Regular и системный Arial?",
+      "expected_path": "projects/ursus/01-knowledge/brand-system.md"
+    },
+    {
+      "query": "Какие правила фотостиля указаны в брендбуке Ursus Trade?",
+      "expected_path": "projects/ursus/01-knowledge/brand-system.md"
+    },
+    {
+      "query": "Какие носители: пакет, визитка, бланк, ручка, кепка и вывеска — есть в наборе?",
+      "expected_path": "projects/ursus/01-knowledge/brand-assets.md"
+    },
+    {
+      "query": "Сколько файлов и каких форматов содержит брендинг Ursus Trade?",
+      "expected_path": "projects/ursus/01-knowledge/brand-assets.md"
+    }
+  ]
+}

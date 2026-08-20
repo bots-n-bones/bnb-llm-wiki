@@ -1,0 +1,77 @@
+{
+  "schema": "hermes-kb-golden-queries/v1",
+  "project": "svmpx",
+  "status": "materialized-index-certified-after-owner-approval-2026-08-20",
+  "ranking_rule": "active canonical pages rank above approved references and source evidence",
+  "queries": [
+    {
+      "query": "Что такое SVMPX и какие задачи решает система?",
+      "expected_path": "projects/svmpx/00-canon/project-overview.md"
+    },
+    {
+      "query": "Из каких компонентов состоит архитектура SVMPX?",
+      "expected_path": "projects/svmpx/00-canon/system-documentation.md",
+      "preapproval_path": "projects/svmpx/00-canon/bot-scenarios.md"
+    },
+    {
+      "query": "Какие основные сущности и связи есть в модели данных?",
+      "expected_path": "projects/svmpx/00-canon/data-model.md"
+    },
+    {
+      "query": "Чем отличаются PO, ORD и PrePO?",
+      "expected_path": "projects/svmpx/00-canon/data-model.md",
+      "preapproval_path": "projects/svmpx/04-source-register/sources/supporting/operations/bot-brutto-scenarios.md"
+    },
+    {
+      "query": "Как выглядит полный путь заказа от SO до DR?",
+      "expected_path": "projects/svmpx/00-canon/system-documentation.md",
+      "preapproval_path": "projects/svmpx/04-source-register/dedupe-report.md"
+    },
+    {
+      "query": "Как рассчитывается DDP и какие параметры входят в формулу?",
+      "expected_path": "projects/svmpx/00-canon/ddp-finance-flow.md",
+      "preapproval_path": "projects/svmpx/04-source-register/sources/supporting/operations/ddp-logic.md"
+    },
+    {
+      "query": "Как устроен финансовый поток заказа?",
+      "expected_path": "projects/svmpx/00-canon/ddp-finance-flow.md"
+    },
+    {
+      "query": "Какие сценарии поддерживает бот Брутто?",
+      "expected_path": "projects/svmpx/00-canon/bot-scenarios.md"
+    },
+    {
+      "query": "Какие статусы, флаги и сообщения ошибок используются?",
+      "expected_path": "projects/svmpx/00-canon/bot-scenarios.md",
+      "preapproval_path": "projects/svmpx/04-source-register/dedupe-report.md"
+    },
+    {
+      "query": "Как проходит импорт и что записывается в ImportLogs?",
+      "expected_path": "projects/svmpx/00-canon/system-documentation.md"
+    },
+    {
+      "query": "По каким полям выполняется дедупликация товаров?",
+      "expected_path": "projects/svmpx/00-canon/data-model.md",
+      "preapproval_path": "projects/svmpx/00-canon/bot-scenarios.md"
+    },
+    {
+      "query": "Как тестировать Electronics и Clothes?",
+      "expected_path": "projects/svmpx/00-canon/qa-protocol.md",
+      "preapproval_path": "projects/svmpx/04-source-register/sources/supporting/quality/test-protocol.md"
+    },
+    {
+      "query": "Какие доработки запланированы и что уже устарело?",
+      "expected_path": "projects/svmpx/00-canon/roadmap.md"
+    },
+    {
+      "query": "Откуда взяты сведения из Telegram и Notion?",
+      "expected_path": "projects/svmpx/00-canon/project-overview.md",
+      "preapproval_path": "audit/drive-baseline-summary-2026-08-19.md"
+    },
+    {
+      "query": "Какие источники содержат секреты и не должны попадать в KB?",
+      "expected_path": "projects/svmpx/00-canon/bot-scenarios.md",
+      "preapproval_path": "projects/svmpx/00-canon/bot-scenarios.md"
+    }
+  ]
+}

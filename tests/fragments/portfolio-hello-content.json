@@ -1,0 +1,110 @@
+{
+  "schema": "hermes-kb-golden-query-fragment/v1",
+  "agent": "portfolio-hello-content",
+  "created": "2026-08-20",
+  "query_count": 17,
+  "queries": [
+    {
+      "project": "hello-i-am",
+      "query": "Что такое HELLOIAM.AM и как устроена его бренд-архитектура?",
+      "expected_path": "projects/hello-i-am/01-knowledge/project-overview.md",
+      "evidence_source_ids": ["kb-hello-i-am-source-workspace-readme", "kb-hello-i-am-source-project-canon"]
+    },
+    {
+      "project": "hello-i-am",
+      "query": "Какую роль играют feed, stories и reels в запуске Hello I Am?",
+      "expected_path": "projects/hello-i-am/01-knowledge/instagram-launch-system.md",
+      "evidence_source_ids": ["kb-hello-i-am-source-instagram-start-system"]
+    },
+    {
+      "project": "hello-i-am",
+      "query": "Чем отличаются территория, рубрика и формат контента Hello I Am?",
+      "expected_path": "projects/hello-i-am/01-knowledge/content-rubrics.md",
+      "evidence_source_ids": ["kb-hello-i-am-source-content-rubrics"]
+    },
+    {
+      "project": "hello-i-am",
+      "query": "Как выглядит недельный ритм и первый месяц публикаций Hello I Am?",
+      "expected_path": "projects/hello-i-am/01-knowledge/weekly-rhythm.md",
+      "evidence_source_ids": ["kb-hello-i-am-source-weekly-rhythm"]
+    },
+    {
+      "project": "hello-i-am",
+      "query": "Какие фазы и ближайшие действия описаны в плане запуска Hello I Am?",
+      "expected_path": "projects/hello-i-am/01-knowledge/production-roadmap.md",
+      "evidence_source_ids": ["kb-hello-i-am-source-work-plan"]
+    },
+    {
+      "project": "hello-i-am",
+      "query": "Из каких слоёв собирается image prompt Hello I Am и какие визуальные режимы используются?",
+      "expected_path": "projects/hello-i-am/01-knowledge/image-prompt-architecture.md",
+      "evidence_source_ids": ["kb-hello-i-am-source-image-prompt-system"]
+    },
+    {
+      "project": "hello-i-am",
+      "query": "Как устроены hero prompts, style lanes и category rollups для видео Hello I Am?",
+      "expected_path": "projects/hello-i-am/01-knowledge/video-prompt-architecture.md",
+      "evidence_source_ids": ["kb-hello-i-am-source-video-prompt-system"]
+    },
+    {
+      "project": "hello-i-am",
+      "query": "Как локально запускается dashboard Hello I Am и какие разделы ему нужны?",
+      "expected_path": "projects/hello-i-am/01-knowledge/dashboard-operations.md",
+      "evidence_source_ids": ["kb-hello-i-am-source-dashboard-readme"]
+    },
+    {
+      "project": "hello-i-am",
+      "query": "Какие поля есть в workbook базы коллабораций Hello I Am?",
+      "expected_path": "projects/hello-i-am/01-knowledge/collaboration-database-schema.md",
+      "evidence_source_ids": ["kb-hello-i-am-source-collabs-database-schema"]
+    },
+    {
+      "project": "content-os",
+      "query": "Что такое Content OS и что входит в его MVP?",
+      "expected_path": "projects/content-os/01-knowledge/project-overview.md",
+      "evidence_source_ids": ["kb-content-os-source-mvp-readme", "kb-content-os-source-brand-core"]
+    },
+    {
+      "project": "content-os",
+      "query": "Из каких слоёв состоит Content OS Content Factory?",
+      "expected_path": "projects/content-os/01-knowledge/factory-architecture.md",
+      "evidence_source_ids": ["kb-content-os-source-master-workflow"]
+    },
+    {
+      "project": "content-os",
+      "query": "Какие документы и проверки входят в бренд-пресет Content OS?",
+      "expected_path": "projects/content-os/01-knowledge/brand-preset-system.md",
+      "evidence_source_ids": ["kb-content-os-source-preset-creation-guide"]
+    },
+    {
+      "project": "content-os",
+      "query": "Как Content OS позиционирует продукт и с чем он себя противопоставляет?",
+      "expected_path": "projects/content-os/01-knowledge/brand-positioning.md",
+      "evidence_source_ids": ["kb-content-os-source-brand-core"]
+    },
+    {
+      "project": "content-os",
+      "query": "Как меняется tone of voice Content OS для LinkedIn, Telegram и Instagram?",
+      "expected_path": "projects/content-os/01-knowledge/tone-and-voice.md",
+      "evidence_source_ids": ["kb-content-os-source-tone-and-voice"]
+    },
+    {
+      "project": "content-os",
+      "query": "Какие визуальные метафоры Content OS разрешены и запрещены?",
+      "expected_path": "projects/content-os/01-knowledge/visual-system.md",
+      "evidence_source_ids": ["kb-content-os-source-visual-alignment"]
+    },
+    {
+      "project": "content-os",
+      "query": "Какие основные сущности и связи есть в reference data model Content OS?",
+      "expected_path": "projects/content-os/01-knowledge/content-data-model.md",
+      "evidence_source_ids": ["kb-content-os-source-database-schema", "kb-content-os-source-airtable-relations"]
+    },
+    {
+      "project": "content-os",
+      "query": "Какова структура XLSX-шаблона контент-плана Content OS?",
+      "expected_path": "projects/content-os/01-knowledge/content-plan-workbook-schema.md",
+      "evidence_source_ids": ["kb-content-os-source-content-plan-schema"]
+    }
+  ]
+}

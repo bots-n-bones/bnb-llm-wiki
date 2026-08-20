@@ -1,0 +1,34 @@
+{
+  "schema": "hermes-kb-golden-fragment/v1",
+  "project": "bots-n-bones",
+  "queries": [
+    {
+      "query": "Какие материалы есть в базе знаний Bots-n-Bones?",
+      "expected_path": "projects/bots-n-bones/README.md"
+    },
+    {
+      "query": "Какой процесс ContentOS описан в кейсе blank?",
+      "expected_path": "projects/bots-n-bones/01-knowledge/case-blank.md"
+    },
+    {
+      "query": "Что означают слои Bones, Bots и Skin в кейсе blank?",
+      "expected_path": "projects/bots-n-bones/01-knowledge/case-blank.md"
+    },
+    {
+      "query": "Какие форматы каналов указаны для blank?",
+      "expected_path": "projects/bots-n-bones/01-knowledge/case-blank.md"
+    },
+    {
+      "query": "Какие результаты заявлены в кейсе blank и подтверждены ли они?",
+      "expected_path": "projects/bots-n-bones/01-knowledge/case-blank.md"
+    },
+    {
+      "query": "Какие колонки есть в XLSX-реестре кейсов Bots-n-Bones?",
+      "expected_path": "projects/bots-n-bones/01-knowledge/case-registry-schema.md"
+    },
+    {
+      "query": "Сколько цветовых PNG-вариантов логотипа Bots-n-Bones найдено?",
+      "expected_path": "projects/bots-n-bones/01-knowledge/brand-assets.md"
+    }
+  ]
+}
