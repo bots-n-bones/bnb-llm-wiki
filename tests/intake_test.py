@@ -31,6 +31,13 @@ class IntakeTests(unittest.TestCase):
         self.assertEqual(drive.fingerprint(item), drive.fingerprint(dict(item)))
         self.assertNotEqual(drive.fingerprint(item), drive.fingerprint(dict(item, version="5")))
 
+    def test_manifest_record_matches_contract_shape(self):
+        item = {"id": "abc", "name": "file.txt", "mimeType": "text/plain", "parent_folder_id": "parent", "original_path": "root/file.txt"}
+        record = drive.manifest_record(item, "snapshot", "2026-08-21T00:00:00Z")
+        self.assertEqual(record["drive_file_id"], "abc")
+        self.assertEqual(record["classification"], "supporting-source")
+        self.assertEqual(record["parent_ids"], ["parent"])
+
     def test_note_review_and_materialization(self):
         with tempfile.TemporaryDirectory() as staging_value, tempfile.TemporaryDirectory() as repo_value:
             staging = Path(staging_value)

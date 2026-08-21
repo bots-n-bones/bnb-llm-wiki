@@ -284,6 +284,7 @@ def main():
     parser.add_argument("--staging", required=True)
     parser.add_argument("--max-bytes", type=int, default=25_000_000)
     parser.add_argument("--max-chars", type=int, default=500_000)
+    parser.add_argument("--manifest-only", action="store_true")
     args = parser.parse_args()
 
     from google.oauth2.credentials import Credentials
@@ -308,6 +309,10 @@ def main():
         fp = fingerprint(item)
         current[item["id"]] = {"fingerprint": fp, "path": item.get("original_path"), "mime_type": item.get("mimeType")}
         if item.get("mimeType") == FOLDER_MIME:
+            records.append(manifest_record(item, snapshot_id, captured_at))
+            continue
+        if args.manifest_only:
+            current[item["id"]]["extraction_status"] = "metadata-only"
             records.append(manifest_record(item, snapshot_id, captured_at))
             continue
         prior = previous.get(item["id"], {})
@@ -337,6 +342,17 @@ def main():
     atomic_write(manifest_path, manifest_text)
     atomic_write(staging / "manifest.sha256", sha256_bytes(manifest_text.encode("utf-8")) + "  manifest.jsonl\n")
     atomic_write(staging / "inventory.sha256", inventory_sha256 + "  stable-inventory\n")
+    csv_stream = io.StringIO()
+    csv_fields = ["snapshot_id", "captured_at", "drive_file_id", "name", "original_path", "mime_type", "url", "parent_ids", "size", "created_time", "modified_time", "drive_version", "md5_checksum", "export_sha256", "classification"]
+    writer = csv.DictWriter(csv_stream, fieldnames=csv_fields, extrasaction="ignore")
+    writer.writeheader()
+    for record in records:
+        row = dict(record)
+        row["parent_ids"] = json.dumps(row.get("parent_ids") or [], ensure_ascii=False)
+        writer.writerow(row)
+    csv_text = csv_stream.getvalue()
+    atomic_write(staging / "manifest.csv", csv_text)
+    atomic_write(staging / "manifest.csv.sha256", sha256_bytes(csv_text.encode("utf-8")) + "  manifest.csv\n")
     new_state = {"schema": "hermes-kb-drive-state/v1", "folder_id": args.folder_id, "captured_at": captured_at, "files": current}
     atomic_write(state_path, json.dumps(new_state, ensure_ascii=False, indent=2) + "\n")
     receipt = {
