@@ -39,6 +39,7 @@ dedupe:
   preferred_source_id: null
 created: 2026-08-19
 updated: 2026-08-19
+classification: restricted
 ---
 
 # SVMPX TG Chatbots
@@ -54,6 +55,9 @@ The original contains secret material. Values are intentionally omitted, the sou
 ## Authority
 
 **restricted-inventory.** The inventory indicates historical or current bot identities, but runtime activity was not verified.
+
+Automatic V1 ingestion is out of scope. Only metadata and security-safe,
+individually reviewed statements may be used.
 
 ## Relationships
 

@@ -8,7 +8,7 @@ canonical: true
 owner: ilya
 confidentiality: internal
 created: 2026-08-19
-updated: 2026-08-20
+updated: 2026-08-21
 tags: [roadmap, svmpx, implementation]
 ---
 
@@ -29,7 +29,7 @@ tags: [roadmap, svmpx, implementation]
 - [x] Register the legacy source register, master index, system map, and Notion
   export map.
 - [x] Register 21/21 knowledge-bearing Markdown files from `01_documentation`.
-- [ ] Classify Notion and Telegram exports as evidence, backup, restricted, or
+- [x] Classify Notion and Telegram exports as evidence, backup, restricted, or
   out of scope.
 - [x] Produce a partial-evidence dedupe report with all decisions pending human
   approval.
@@ -44,7 +44,8 @@ tags: [roadmap, svmpx, implementation]
 - [x] QA protocol draft.
 - [x] Roadmap draft.
 
-All drafts remain non-canonical until human review.
+The seven SVMPX pages completed owner review; unresolved facts remain labeled
+inside the active canonical pages.
 
 ## Gate 3 — Hermes MVP
 
@@ -54,9 +55,10 @@ All drafts remain non-canonical until human review.
 - [x] Add ranked Unicode lexical search for natural Russian questions and
   targeted tests.
 - [x] Add SQLite manifest and FTS5 search with Russian-language tests.
-- [ ] Add metadata-only readonly Drive ingestion for the allowlisted SVMPX root.
-- [x] Add asynchronous persisted synchronization runs for the local-first
-  provider; Google Drive remains deferred.
+- [x] Add metadata-only readonly Drive ingestion for the allowlisted root and
+  differential extraction for the canonical Inbox.
+- [x] Add persisted read-only Drive runs, private staging, approval receipts,
+  validated Git releases and atomic local index refresh.
 - [x] Connect the local private-repository checkout to the local pilot
   environment.
 

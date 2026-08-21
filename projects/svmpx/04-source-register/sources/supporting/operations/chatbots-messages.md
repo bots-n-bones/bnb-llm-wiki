@@ -37,6 +37,7 @@ dedupe:
   preferred_source_id: null
 created: 2026-08-19
 updated: 2026-08-19
+classification: supporting-source
 ---
 
 # SVMPX Chatbots Messages
@@ -50,6 +51,9 @@ Defines Brutto tone and microcopy and provides message variants for SO, PrePO, O
 ## Authority
 
 **content-and-ux-candidate.** Copy and entity names require alignment with the final state machine and production labels.
+
+The reviewed copy is supporting evidence; raw Telegram exports remain
+`archive-only` and outside automatic V1 ingestion.
 
 ## Relationships
 

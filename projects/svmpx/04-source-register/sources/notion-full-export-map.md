@@ -35,6 +35,7 @@ dedupe:
   preferred_source_id: null
 created: 2026-08-19
 updated: 2026-08-19
+classification: archive-only
 ---
 
 # SVMPX Notion Full Export Map
@@ -60,6 +61,9 @@ technical infrastructure, and unrelated content-factory material.
 
 The map identifies a credentials page that must remain an original restricted
 source and must not be copied into KB V2.
+
+The package is classified `archive-only`; individually reviewed pages may be
+registered as supporting sources. Restricted credential pages remain excluded.
 
 ## Relationships
 
