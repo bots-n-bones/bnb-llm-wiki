@@ -1,0 +1,28 @@
+#!/usr/bin/env sh
+set -eu
+
+ROOT=${1:-/var/lib/docker/volumes/hermes-codex-workspace_hermes-knowledge/_data/bnb-llm-wiki}
+STAGING=${2:-/var/lib/docker/volumes/hermes-codex-workspace_hermes-agent-data/_data/knowledge-intake}
+DEPLOY_KEY=${BNB_WIKI_DEPLOY_KEY:-/root/.ssh/bnb-wiki-deploy}
+VALIDATOR_IMAGE=${BNB_WIKI_VALIDATOR_IMAGE:-hermes-codex-workspace:server}
+
+test -d "$ROOT/.git"
+test -d "$STAGING"
+test -r "$DEPLOY_KEY"
+
+git -C "$ROOT" fetch origin main
+git -C "$ROOT" reset --hard origin/main
+python3 "$ROOT/scripts/manage-intake.py" materialize --staging "$STAGING" --repo "$ROOT"
+
+git -C "$ROOT" add projects
+if git -C "$ROOT" diff --cached --quiet; then
+  exit 0
+fi
+
+docker run --rm --entrypoint /bin/sh -v "$ROOT:/repo" -w /repo "$VALIDATOR_IMAGE" -lc 'npm ci >/dev/null && npm run validate'
+git -C "$ROOT" config user.name "Hermes Knowledge Bot"
+git -C "$ROOT" config user.email "bots-n-bones@users.noreply.github.com"
+git -C "$ROOT" commit -m "knowledge: publish approved intake drafts"
+GIT_SSH_COMMAND="ssh -i $DEPLOY_KEY -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new" \
+  git -C "$ROOT" push git@github.com:bots-n-bones/bnb-llm-wiki.git HEAD:main
+/bin/sh "$ROOT/scripts/sync-server-release.sh" "$ROOT"

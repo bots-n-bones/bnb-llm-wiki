@@ -32,12 +32,20 @@ records the original file identifier/path/time, extracts readable text when
 appropriate, and creates a source record plus a draft. A user message or a
 fresh file alone cannot create active canon.
 
+Drive polling is differential and read-only. Unapproved extracts are private
+runtime state, not Git content. Media is registered by metadata without being
+downloaded during the default intake pass.
+
 ## Curation and release
 
 The pipeline validates metadata, provenance, links, lifecycle and secrets;
 records unresolved issues in the owner review queue; then publishes a validated
 Wiki revision. The server synchronizes that revision, rebuilds the local FTS
 index and performs a retrieval smoke test before replacing its current index.
+
+Publication requires an explicit owner approval receipt. Published intake
+content starts as a non-canonical source record and draft. Canonical promotion
+remains a separate business-meaning approval.
 
 ## Authority
 

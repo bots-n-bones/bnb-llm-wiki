@@ -1,0 +1,4 @@
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+*/5 * * * * root /usr/bin/flock -n /var/lock/hermes-bnb-knowledge-health.lock /bin/sh /var/lib/docker/volumes/hermes-codex-workspace_hermes-knowledge/_data/bnb-llm-wiki/scripts/check-knowledge-health.sh >> /var/log/hermes-bnb-knowledge-health.log 2>&1

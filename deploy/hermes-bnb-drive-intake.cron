@@ -1,0 +1,5 @@
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+# Read-only Drive Inbox scan. Extracts are staged privately in Hermes state.
+*/10 * * * * root /usr/bin/flock -n /var/lock/hermes-bnb-drive-intake.lock /usr/bin/docker exec -u hermes hermes-codex-workspace-hermes-agent-1 /bin/sh /opt/knowledge/bnb-llm-wiki/scripts/run-drive-intake.sh >> /var/log/hermes-bnb-drive-intake.log 2>&1

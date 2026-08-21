@@ -8,7 +8,7 @@ canonical: true
 owner: ilya
 confidentiality: internal
 created: 2026-08-19
-updated: 2026-08-19
+updated: 2026-08-21
 tags: [knowledge-base, governance]
 ---
 
@@ -20,10 +20,11 @@ video, and archival exports.
 
 ## Safety boundary
 
-- The existing Google Drive tree is an immutable source during the pilot.
+- The existing Google Drive tree is an immutable source.
 - No source file is moved, renamed, replaced, or deleted by KB V2 ingestion.
 - Source records refer to originals by stable Google Drive file ID and URL.
-- Generated text is stored under `90-derived/` and never overwrites a source.
+- Generated text is first stored in private server staging. Approved drafts are
+  added under the project knowledge tree and never overwrite a source.
 - Canonical knowledge candidates are organized under `00-canon/`,
   `01-knowledge/`, `02-decisions/`, and `03-sops/`.
 - Credentials and secrets are never copied into this repository.
@@ -42,6 +43,18 @@ Each portfolio project uses the same layers: `00-canon/`, `01-knowledge/`,
 ## Portfolio foundation
 
 The portfolio contains `svmpx`, `hello-i-am`, `content-os`, `bots-n-bones`,
-`quntm`, `ursus`, and cross-project `shared` knowledge. Only SVMPX currently
-has curated pilot evidence; every other project home is a non-canonical draft
-placeholder until its sources are reviewed.
+`quntm`, `ursus`, and cross-project `shared` knowledge. SVMPX has owner-approved
+canon. Other projects contain registered evidence and non-canonical drafts that
+remain in the owner review queue.
+
+## Production flow
+
+Hermes answers from a server-local, read-only SQLite FTS index. A read-only
+Drive worker scans only the allowlisted `00 - inbox` folder every ten minutes,
+uses stable Drive fingerprints, extracts bounded text where supported and
+stores packages privately under `/opt/data/knowledge-intake`.
+
+Publication is a separate gate. Ilya must explicitly approve an intake package;
+only then can the release worker create a source record and a non-canonical
+draft, validate the repository, push the revision and rebuild the SQLite index.
+See [[00-governance/intake-operations|Knowledge Intake Operations]].

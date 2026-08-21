@@ -1,0 +1,5 @@
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+# Publishes only packages explicitly approved by Ilya; unapproved extracts stay private.
+*/5 * * * * root /usr/bin/flock -n /var/lock/hermes-bnb-intake-publish.lock /bin/sh /var/lib/docker/volumes/hermes-codex-workspace_hermes-knowledge/_data/bnb-llm-wiki/scripts/publish-approved-intake.sh >> /var/log/hermes-bnb-intake-publish.log 2>&1
