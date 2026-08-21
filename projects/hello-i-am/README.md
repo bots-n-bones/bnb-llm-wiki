@@ -23,6 +23,7 @@ in this project has been approved as canon.
 
 ## Knowledge map
 
+- [[projects/hello-i-am/01-knowledge/case-hello-i-am|Case overview]]
 - [[projects/hello-i-am/01-knowledge/project-overview|Project overview]]
 - [[projects/hello-i-am/01-knowledge/instagram-launch-system|Instagram launch system]]
 - [[projects/hello-i-am/01-knowledge/content-rubrics|Content rubric map]]

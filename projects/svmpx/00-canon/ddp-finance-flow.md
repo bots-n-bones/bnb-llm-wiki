@@ -22,6 +22,7 @@ source_ids:
   - src-gdrive-1bmHoD2jBsr15TUt7Ba7MFl5DnBk_QiPg
   - src-gdrive-11k4c1lrD1xmIIDAXqR0Vr9lqXdIBMCwR
   - src-gdrive-1NbUlBCwIyXCI8U-hrT0BF6yZvEMIJ9a7
+  - src-gdrive-11SnMFpVevWV8OwlXYQau-meyUpay9KQP
 related:
   - "[[projects/svmpx/04-source-register/sources/supporting/operations/ddp-logic]]"
   - "[[projects/svmpx/04-source-register/sources/documentation/source-offers-overview]]"
@@ -30,6 +31,7 @@ related:
   - "[[projects/svmpx/04-source-register/sources/documentation/client-proposal-overview]]"
   - "[[projects/svmpx/04-source-register/sources/documentation/client-proposal-card]]"
   - "[[projects/svmpx/04-source-register/sources/documentation/client-proposal-workflow]]"
+  - "[[projects/svmpx/04-source-register/sources/supporting/operations/sda-master-sample]]"
 created: 2026-08-19
 updated: 2026-08-20
 review_at: null
@@ -129,6 +131,9 @@ EXW
 Russian VAT `20%` и client margin `20%` применяются на своих этапах этой
 последовательности. Tariff берётся из Category продукта. Для переменного
 Russian markup ещё требуется определить источник значения и права изменения.
+Историческая книга `SDA master` подтверждает набор промежуточных полей
+(`DAP`, tariff, VAT, DDP и финальная цена), но не переводит исторический
+пример в актуальное исполнимое правило.
 
 ## Устаревший кандидат формулы Logistics Pallet
 
@@ -184,3 +189,4 @@ Logistics Pallet =
 - [[projects/svmpx/04-source-register/sources/documentation/client-proposal-overview]]
 - [[projects/svmpx/04-source-register/sources/documentation/client-proposal-card]]
 - [[projects/svmpx/04-source-register/sources/documentation/client-proposal-workflow]]
+- [[projects/svmpx/04-source-register/sources/supporting/operations/sda-master-sample]]
