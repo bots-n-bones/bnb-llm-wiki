@@ -23,12 +23,12 @@ original Drive artifact.
 | Project | Draft pages | Suggested approval unit |
 | --- | ---: | --- |
 | Content OS | 9 | Product overview, architecture, brand system, data model, content-plan schema, media inventory. |
-| Hello I Am | 10 | Project overview, launch/weekly rhythm, dashboard operations, prompt systems, content and collaboration schemas. |
-| Bots-n-Bones | 3 | Case framing, case-register schema, brand-asset inventory. |
+| Hello I Am | 11 | Project/case overview, launch/weekly rhythm, dashboard operations, prompt systems, content and collaboration schemas. |
+| Bots-n-Bones | 4 | Case framing, case-register schema, brand-asset inventory, Hermes access model. |
 | Quntm | 2 | Service-discovery framework and Savimpex case. |
 | Ursus | 2 | Brand system and asset inventory. |
 | Shared | 4 | Research and agent-workflow references; keep as non-canonical reference unless explicitly approved. |
-| SVMPX | 1 | Original-file catalog; metadata-only, not product canon. |
+| SVMPX | 2 | Original-file catalog and historical DDP workbook schema; metadata-only, not product canon. |
 
 ## Review protocol
 

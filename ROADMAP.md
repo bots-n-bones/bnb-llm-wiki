@@ -20,9 +20,9 @@ tags: [roadmap, svmpx, implementation]
 - [x] Select the shared root as immutable source candidate.
 - [x] Record verified depth-4 audit statistics and duplicate indicators.
 - [x] Store a reproducible partial connector snapshot and its coverage report.
-- [ ] Produce complete recursive JSONL and CSV manifests.
-- [ ] Hash the manifest and commit its checksum.
-- [ ] Confirm all folders discovered at the audit boundary are expanded.
+- [x] Produce complete recursive JSONL and CSV manifests.
+- [x] Hash the manifests and commit the checksum receipt.
+- [x] Confirm all folders discovered at the audit boundary are expanded.
 
 ## Gate 1 — source classification
 
@@ -73,7 +73,8 @@ inside the active canonical pages.
   deleted during the pilot.
 - [x] Obtain owner approval for the seven SVMPX canonical pages.
 - [x] Re-run the 60-query certificate against approved canonical targets.
-- [ ] Merge the pilot branch to `main` and tag `svmpx-pilot-v1`.
+- [x] Merge the pilot branch to `main` and tag `svmpx-pilot-v1`.
 
 See [[00-governance/architecture|KB V2 Architecture]] and
-[[audit/drive-baseline-summary-2026-08-19|SVMPX Drive Baseline Summary]].
+[[audit/drive-baseline-summary-2026-08-19|SVMPX Drive Baseline Summary]], plus
+[[audit/drive-canonical-root-audit-2026-08-21|the complete canonical Drive root audit]].
