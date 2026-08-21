@@ -39,6 +39,14 @@ candidates. They are not imported, promoted, or used to alter canon.
 The combined folder traversal inspected 19,656 items in 3,427 folders. No
 folder response was truncated and no listing error occurred.
 
+## Current local availability
+
+At the time of this audit, the historical local artifact directories
+`BnB Project` and `BnB Project — Canonical` were no longer present at their
+recorded paths. The manifest, source records, curated Markdown, and safe local
+search index remain available. Do not claim to have re-extracted text from an
+original unless the artifact is later restored or retrieved from Drive.
+
 ## Decision
 
 Do not re-download the primary root at this stage. Keep the incomplete root
