@@ -14,14 +14,15 @@ aliases:
   - Источники SVMPX
   - Происхождение сведений Telegram и Notion
 created: 2026-08-19
-updated: 2026-08-19
+updated: 2026-08-21
 tags: [svmpx, sources, provenance]
 ---
 
 # SVMPX Source Register
 
 This register contains one Markdown record per material source or logical source
-package. Raw files remain on Google Drive.
+package. Drive originals remain on Google Drive; downloaded originals remain in
+the read-only local BnB Project folder.
 
 ## Verified roots
 
@@ -57,6 +58,7 @@ complete. Nothing is deleted or moved.
   - `sources/supporting/operations/` — bot, status, message, and DDP evidence.
   - `sources/supporting/quality/` — test protocol, automation inventory, and historical roadmap.
 - [[projects/svmpx/04-source-register/dedupe-report|Partial-evidence dedupe report]]
+- [[projects/svmpx/04-source-register/local-project-manifest|Downloaded local project manifest]]
 
 See [[audit/drive-baseline-summary-2026-08-19]].
 

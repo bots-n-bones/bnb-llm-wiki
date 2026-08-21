@@ -35,10 +35,9 @@ SVMPX is the pilot for the hybrid Drive + Markdown knowledge architecture.
 - Duplicate candidates are quarantined in the manifest, not deleted.
 - Canonical status requires owner approval.
 
-## Canonical candidates awaiting approval
+## Active canon
 
-These pages are curated drafts, not current truth. They remain
-`status: draft` and `canonical: false` until owner review:
+The owner approved these pages as current operational canon on 2026-08-20:
 
 - [[projects/svmpx/00-canon/project-overview|Project overview]]
 - [[projects/svmpx/00-canon/system-documentation|System documentation]]
@@ -51,3 +50,5 @@ These pages are curated drafts, not current truth. They remain
 See [[00-governance/metadata-contract|KB V2 Metadata Contract]] and
 [[00-governance/lifecycle|KB V2 Lifecycle and Rollback]]. The current source
 inventory is tracked in [[projects/svmpx/04-source-register/README|SVMPX Source Register]].
+Original local artifacts can be found through
+[[projects/svmpx/01-knowledge/original-file-catalog|SVMPX original file catalog]].

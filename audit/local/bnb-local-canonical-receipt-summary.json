@@ -1,0 +1,11 @@
+{
+  "generated_at": "2026-08-21T02:26:05.191Z",
+  "mode": "apply",
+  "manifest_path": "/Users/ilya/ALL PROJECTS/01_PROJECTS/01_HERMES/01_HERMES_WORKSPACE hermes_workspace/knowledge-v2/audit/local/bnb-local-manifest.jsonl",
+  "destination_root": "/Users/ilya/Downloads/BnB Project — Canonical",
+  "source_count": 3057,
+  "destination_count": 3057,
+  "bytes": 4021112141,
+  "copied": 3057,
+  "already_present": 0
+}
