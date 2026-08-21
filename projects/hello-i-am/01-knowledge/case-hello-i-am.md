@@ -3,9 +3,9 @@ schema: hermes-kb/v2
 id: kb-hello-i-am-case-overview
 title: Как устроен Hello I Am — cultural-media case
 project: hello-i-am
-type: derived
-status: draft
-canonical: false
+type: canon
+status: active
+canonical: true
 owner: ilya
 confidentiality: internal
 summary: "Draft synthesis of a Hello I Am case: brand framing, the I AM _ editorial system, and the proposed content-production workflow."

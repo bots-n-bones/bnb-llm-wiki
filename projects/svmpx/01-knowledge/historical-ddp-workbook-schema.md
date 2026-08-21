@@ -3,9 +3,9 @@ schema: hermes-kb/v2
 id: kb-svmpx-historical-ddp-workbook-schema
 title: Historical SVMPX DDP workbook fields
 project: svmpx
-type: derived
-status: draft
-canonical: false
+type: canon
+status: active
+canonical: true
 owner: ilya
 confidentiality: internal
 summary: Поля исторической DDP-книги и границы их безопасного использования.

@@ -3,9 +3,9 @@ schema: hermes-kb/v2
 id: kb-bnb-hermes-access-model
 title: Hermes access and knowledge model
 project: bots-n-bones
-type: derived
-status: draft
-canonical: false
+type: canon
+status: active
+canonical: true
 owner: ilya
 confidentiality: internal
 summary: Черновая модель ролей, контекста и доступа Hermes к знаниям и задачам.

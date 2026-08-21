@@ -3,9 +3,9 @@ schema: hermes-kb/v2
 id: kb-hello-i-am-content-rubrics
 title: "Hello I Am content rubric map"
 project: hello-i-am
-type: derived
-status: draft
-canonical: false
+type: canon
+status: active
+canonical: true
 owner: ilya
 confidentiality: internal
 created: 2026-08-20

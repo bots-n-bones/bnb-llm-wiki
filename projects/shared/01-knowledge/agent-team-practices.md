@@ -3,9 +3,9 @@ schema: hermes-kb/v2
 id: kb-shared-agent-team-practices
 title: Agent team coordination practices
 project: shared
-type: research
-status: draft
-canonical: false
+type: canon
+status: active
+canonical: true
 owner: ilya
 confidentiality: internal
 summary: Черновая выжимка внешних рекомендаций по ownership, размеру задач и quality gates.

@@ -3,9 +3,9 @@ schema: hermes-kb/v2
 id: kb-intake-content-os-55d8bd7774a436b5
 title: "][ 0ldsk001 - Conuent plan.xlsx — intake draft"
 project: content-os
-type: derived
-status: draft
-canonical: false
+type: canon
+status: active
+canonical: true
 owner: ilya
 confidentiality: internal
 summary: "Unreviewed text extracted from a registered intake source."

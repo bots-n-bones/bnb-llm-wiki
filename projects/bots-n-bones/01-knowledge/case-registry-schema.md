@@ -3,9 +3,9 @@ schema: hermes-kb/v2
 id: kb-bnb-case-registry-schema
 title: Bots-n-Bones case registry schema
 project: bots-n-bones
-type: derived
-status: draft
-canonical: false
+type: canon
+status: active
+canonical: true
 owner: ilya
 confidentiality: internal
 summary: Безопасная схема XLSX-реестра без выгрузки строк и рабочих значений.

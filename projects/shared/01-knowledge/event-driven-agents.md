@@ -3,9 +3,9 @@ schema: hermes-kb/v2
 id: kb-shared-event-driven-agents
 title: Event-driven multi-agent patterns
 project: shared
-type: research
-status: draft
-canonical: false
+type: canon
+status: active
+canonical: true
 owner: ilya
 confidentiality: internal
 summary: Черновая выжимка внешней публикации о streaming-based coordination агентных систем.

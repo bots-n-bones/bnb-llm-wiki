@@ -3,9 +3,9 @@ schema: hermes-kb/v2
 id: kb-bnb-brand-assets
 title: Bots-n-Bones brand asset inventory
 project: bots-n-bones
-type: derived
-status: draft
-canonical: false
+type: canon
+status: active
+canonical: true
 owner: ilya
 confidentiality: internal
 summary: Метаданные девяти цветовых PNG-вариантов логотипа Bots-n-Bones.

@@ -3,9 +3,9 @@ schema: hermes-kb/v2
 id: kb-bnb-case-blank
 title: blank ContentOS case
 project: bots-n-bones
-type: reference
-status: draft
-canonical: false
+type: canon
+status: active
+canonical: true
 owner: ilya
 confidentiality: internal
 summary: Черновой разбор кейса ContentOS для единого визуального стиля product cards и social-контента.

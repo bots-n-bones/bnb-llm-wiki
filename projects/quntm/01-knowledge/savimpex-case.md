@@ -3,9 +3,9 @@ schema: hermes-kb/v2
 id: kb-quntm-savimpex-case
 title: Savimpex LogisticsOS case
 project: quntm
-type: reference
-status: draft
-canonical: false
+type: canon
+status: active
+canonical: true
 owner: ilya
 confidentiality: internal
 summary: Черновой разбор заявленного перехода Savimpex от разрозненных файлов к сквозному LogisticsOS-процессу.

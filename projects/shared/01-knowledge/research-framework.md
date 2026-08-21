@@ -3,9 +3,9 @@ schema: hermes-kb/v2
 id: kb-shared-research-framework
 title: Six-phase research framework
 project: shared
-type: research
-status: draft
-canonical: false
+type: canon
+status: active
+canonical: true
 owner: ilya
 confidentiality: internal
 summary: Черновой индекс шести последовательных исследовательских фаз и их gates.

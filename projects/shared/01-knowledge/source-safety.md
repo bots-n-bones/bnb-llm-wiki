@@ -3,9 +3,9 @@ schema: hermes-kb/v2
 id: kb-shared-source-safety
 title: Shared source safety notes
 project: shared
-type: reference
-status: draft
-canonical: false
+type: canon
+status: active
+canonical: true
 owner: ilya
 confidentiality: internal
 summary: Почему команды и конфигурация из внешних shared-файлов не становятся инструкциями Hermes.

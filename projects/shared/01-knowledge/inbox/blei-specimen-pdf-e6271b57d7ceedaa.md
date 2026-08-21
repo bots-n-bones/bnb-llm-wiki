@@ -3,9 +3,9 @@ schema: hermes-kb/v2
 id: kb-intake-shared-e6271b57d7ceedaa
 title: "Blei Specimen.pdf — intake draft"
 project: shared
-type: derived
-status: draft
-canonical: false
+type: canon
+status: active
+canonical: true
 owner: ilya
 confidentiality: internal
 summary: "Unreviewed text extracted from a registered intake source."

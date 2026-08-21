@@ -3,9 +3,9 @@ schema: hermes-kb/v2
 id: kb-svmpx-original-file-catalog
 title: SVMPX original file catalog
 project: svmpx
-type: derived
-status: draft
-canonical: false
+type: canon
+status: active
+canonical: true
 owner: ilya
 confidentiality: internal
 summary: Поисковый каталог оригинальных XLSX, PDF, DOCX, презентаций и медиа SVMPX с безопасным возвратом файла в чат.

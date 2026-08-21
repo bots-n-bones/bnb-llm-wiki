@@ -3,9 +3,9 @@ schema: hermes-kb/v2
 id: kb-ursus-brand-assets
 title: Ursus Trade brand asset inventory
 project: ursus
-type: derived
-status: draft
-canonical: false
+type: canon
+status: active
+canonical: true
 owner: ilya
 confidentiality: internal
 summary: Безопасный метаданный каталог форматов и носителей бренда Ursus Trade.

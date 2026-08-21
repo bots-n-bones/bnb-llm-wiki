@@ -3,9 +3,9 @@ schema: hermes-kb/v2
 id: kb-ursus-brand-system
 title: Ursus Trade brand system
 project: ursus
-type: reference
-status: draft
-canonical: false
+type: canon
+status: active
+canonical: true
 owner: ilya
 confidentiality: internal
 summary: Черновая выжимка правил логотипа, цвета, типографики и фотостиля из брендбука.

@@ -3,9 +3,9 @@ schema: hermes-kb/v2
 id: kb-quntm-service-discovery
 title: Quntm logistics service discovery framework
 project: quntm
-type: derived
-status: draft
-canonical: false
+type: canon
+status: active
+canonical: true
 owner: ilya
 confidentiality: internal
 summary: Структура вопросов для верификации географии, SLA, ограничений и состава логистических услуг.
