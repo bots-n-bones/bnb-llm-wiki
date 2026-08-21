@@ -101,6 +101,10 @@ def build(root: Path, output: Path) -> int:
                 db.execute("INSERT INTO documents_fts(rowid, normalized) VALUES (?, ?)", (cursor.lastrowid, normalized))
             db.commit()
         os.replace(temporary, output)
+        # The deployment job runs as root, while Hermes reads the mounted index
+        # as an unprivileged user. NamedTemporaryFile starts at 0600, so make the
+        # published artifact explicitly read-only for other users.
+        os.chmod(output, 0o644)
     finally:
         temporary.unlink(missing_ok=True)
     print(json.dumps({"database": str(output), "documentCount": len(records), "publishedAt": datetime.now(timezone.utc).isoformat()}))
