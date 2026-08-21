@@ -62,4 +62,10 @@ were quarantined.
 6. After user acceptance and a second checksum verification, archive the three
    old fragments; do not permanently delete them during the first release.
 
-No physical move, rename or deletion has been performed.
+## Owner decision
+
+On 2026-08-21 Ilya approved `BnB Project — Canonical` as the working local
+root. The three downloaded fragments remain unchanged as immutable Legacy
+evidence. No source deletion, rename or move has been performed.
+
+See [[02-decisions/local-canonical-root]].

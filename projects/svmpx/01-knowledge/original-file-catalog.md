@@ -30,6 +30,10 @@ This page is the entry point for returning original project files rather than
 only Markdown documentation. The underlying local manifest contains 2,873
 SVMPX artifacts:
 
+The owner-approved working root is `/Users/ilya/Downloads/BnB Project — Canonical`.
+The three downloaded fragments are immutable Legacy evidence and are not used
+as a silent retrieval fallback. See [[02-decisions/local-canonical-root]].
+
 - 2,151 XLSX workbooks;
 - 443 PNG screenshots;
 - 131 Markdown documents;
