@@ -13,6 +13,8 @@ updated: 2026-08-20
 tags: [overview, mvp]
 aliases:
   - "Что такое Content OS"
+  - "Как устроен ContentOS"
+  - "Как устроен Content OS"
   - "Что входит в MVP Content OS"
   - "Обзор продукта ContentOS"
 summary: "Что такое Content OS и что входит в его MVP: инфраструктура контент-производства, workflows, brand presets и управляемые генеративные pipelines."

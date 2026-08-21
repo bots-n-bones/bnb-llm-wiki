@@ -3,6 +3,7 @@
 .env.*
 !.env.example
 node_modules/
+.local-index/
 dist/
 build/
 *.zip
@@ -25,4 +26,3 @@ build/
 *.webp
 *.sqlite
 *.sqlite3
-

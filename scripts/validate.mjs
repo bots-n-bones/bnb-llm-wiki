@@ -6,7 +6,7 @@ import addFormats from 'ajv-formats'
 import YAML from 'yaml'
 
 const root = path.resolve(process.cwd())
-const ignoredDirectories = new Set(['.git', 'node_modules'])
+const ignoredDirectories = new Set(['.git', 'node_modules', '.local-index'])
 const forbiddenDirectories = new Set(['dist', 'build'])
 const forbiddenExtensions = new Set([
   '.7z', '.avi', '.doc', '.docx', '.gif', '.gz', '.jpeg', '.jpg', '.mov',
