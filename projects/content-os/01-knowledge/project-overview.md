@@ -3,9 +3,9 @@ schema: hermes-kb/v2
 id: kb-content-os-project-overview
 title: "Content OS project overview"
 project: content-os
-type: derived
-status: draft
-canonical: false
+type: canon
+status: active
+canonical: true
 owner: ilya
 confidentiality: internal
 created: 2026-08-20
