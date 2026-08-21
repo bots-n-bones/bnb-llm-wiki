@@ -182,6 +182,17 @@ def decide(args, decision):
     print(json.dumps({"status": item["status"], "intake_id": item["intake_id"]}, ensure_ascii=False))
 
 
+def reclassify(args):
+    staging = Path(args.staging).resolve()
+    path, item = find_package(staging, args.id)
+    prior = item.get("project")
+    item["project"] = args.project
+    item["classification_note"] = args.note
+    item["classified_at"] = now()
+    atomic_write(path, json.dumps(item, ensure_ascii=False, indent=2) + "\n")
+    print(json.dumps({"status": "reclassified", "intake_id": item["intake_id"], "from": prior, "to": args.project}, ensure_ascii=False))
+
+
 def materialize(args):
     staging = Path(args.staging).resolve()
     repo = Path(args.repo).resolve()
@@ -242,6 +253,11 @@ def main():
     reject.add_argument("--staging", required=True)
     reject.add_argument("--id", required=True)
     reject.add_argument("--note", required=True)
+    reclassify_parser = sub.add_parser("reclassify")
+    reclassify_parser.add_argument("--staging", required=True)
+    reclassify_parser.add_argument("--id", required=True)
+    reclassify_parser.add_argument("--project", required=True, choices=PROJECTS)
+    reclassify_parser.add_argument("--note", required=True)
     materialize_parser = sub.add_parser("materialize")
     materialize_parser.add_argument("--staging", required=True)
     materialize_parser.add_argument("--repo", required=True)
@@ -251,6 +267,7 @@ def main():
     elif args.command == "stage-note": stage_note(args)
     elif args.command == "approve": decide(args, "approve")
     elif args.command == "reject": decide(args, "reject")
+    elif args.command == "reclassify": reclassify(args)
     else: materialize(args)
     return 0
 

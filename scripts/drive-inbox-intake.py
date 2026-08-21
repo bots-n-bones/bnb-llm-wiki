@@ -36,7 +36,7 @@ PROJECTS = ("svmpx", "hello-i-am", "content-os", "bots-n-bones", "quntm", "ursus
 PROJECT_HINTS = {
     "svmpx": ("svmpx", "savimpex", "ddp", "source offer", "client proposal"),
     "hello-i-am": ("hello i am", "hello-iam", "helloiam", "instagram launch"),
-    "content-os": ("content os", "content plan", "content factory", "tone and voice"),
+    "content-os": ("content os", "content plan", "content calendar", "content factory", "tone and voice"),
     "bots-n-bones": ("bots-n-bones", "bots n bones", "bnb"),
     "quntm": ("quntm", "quantum"),
     "ursus": ("ursus",),
@@ -250,7 +250,8 @@ def manifest_record(item, snapshot_id, captured_at, export_sha=None):
 
 
 def stage_package(staging, item, captured_at, status, text, export_sha, note):
-    project = project_for(item.get("original_path", ""), item.get("name", ""), item.get("description", ""))
+    classification_context = " ".join((item.get("description", ""), text[:20_000]))
+    project = project_for(item.get("original_path", ""), item.get("name", ""), classification_context)
     package = {
         "schema": "hermes-kb-intake/v1",
         "intake_id": f"drive-{item['id']}",
