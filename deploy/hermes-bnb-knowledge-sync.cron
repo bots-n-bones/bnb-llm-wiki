@@ -1,0 +1,5 @@
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+# Managed deployment clone only: fetch validated Wiki releases and rebuild SQLite.
+*/15 * * * * root /usr/bin/flock -n /var/lock/hermes-bnb-knowledge-sync.lock /bin/sh /var/lib/docker/volumes/hermes-codex-workspace_hermes-knowledge/_data/bnb-llm-wiki/scripts/sync-server-release.sh /var/lib/docker/volumes/hermes-codex-workspace_hermes-knowledge/_data/bnb-llm-wiki >> /var/log/hermes-bnb-knowledge-sync.log 2>&1
