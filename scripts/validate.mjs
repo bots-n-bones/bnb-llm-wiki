@@ -7,6 +7,7 @@ import YAML from 'yaml'
 
 const root = path.resolve(process.cwd())
 const ignoredDirectories = new Set(['.git', 'node_modules', '.local-index'])
+const ignoredFiles = new Set(['knowledge.sqlite', 'knowledge.sqlite.previous'])
 const forbiddenDirectories = new Set(['dist', 'build'])
 const forbiddenExtensions = new Set([
   '.7z', '.avi', '.doc', '.docx', '.gif', '.gz', '.jpeg', '.jpg', '.mov',
@@ -67,6 +68,7 @@ function readJson(filePath) {
 function walk(directory) {
   for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
     if (ignoredDirectories.has(entry.name)) continue
+    if (ignoredFiles.has(entry.name)) continue
     const fullPath = path.join(directory, entry.name)
     if (entry.isDirectory()) {
       if (forbiddenDirectories.has(entry.name)) {
