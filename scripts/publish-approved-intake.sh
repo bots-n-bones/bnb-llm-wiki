@@ -19,7 +19,24 @@ if git -C "$ROOT" diff --cached --quiet; then
   exit 0
 fi
 
+INDEX_HOLD="$ROOT/.local-index"
+mkdir -p "$INDEX_HOLD"
+restore_index() {
+  for name in knowledge.sqlite knowledge.sqlite.previous; do
+    if [ -f "$INDEX_HOLD/$name" ]; then
+      mv "$INDEX_HOLD/$name" "$ROOT/$name"
+    fi
+  done
+}
+trap restore_index EXIT HUP INT TERM
+for name in knowledge.sqlite knowledge.sqlite.previous; do
+  if [ -f "$ROOT/$name" ]; then
+    mv "$ROOT/$name" "$INDEX_HOLD/$name"
+  fi
+done
 docker run --rm --entrypoint /bin/sh -v "$ROOT:/repo" -w /repo "$VALIDATOR_IMAGE" -lc 'npm ci >/dev/null && npm run validate'
+restore_index
+trap - EXIT HUP INT TERM
 git -C "$ROOT" config user.name "Hermes Knowledge Bot"
 git -C "$ROOT" config user.email "bots-n-bones@users.noreply.github.com"
 git -C "$ROOT" commit -m "knowledge: publish approved intake drafts"
