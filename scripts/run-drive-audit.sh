@@ -16,4 +16,5 @@ exec "$PYTHON" "$REPO/scripts/drive-inbox-intake.py" \
   --folder-name "bots-n-bones" \
   --token "$TOKEN" \
   --staging "$STAGING" \
-  --manifest-only
+  --manifest-only \
+  --bulk-list

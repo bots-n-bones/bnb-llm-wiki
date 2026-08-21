@@ -38,6 +38,16 @@ class IntakeTests(unittest.TestCase):
         self.assertEqual(record["classification"], "supporting-source")
         self.assertEqual(record["parent_ids"], ["parent"])
 
+    def test_bulk_inventory_filters_and_builds_paths(self):
+        items = [
+            {"id": "folder", "name": "Nested", "mimeType": drive.FOLDER_MIME, "parents": ["root"]},
+            {"id": "file", "name": "Fact.md", "mimeType": "text/markdown", "parents": ["folder"]},
+            {"id": "other", "name": "Outside.md", "mimeType": "text/markdown", "parents": ["elsewhere"]},
+        ]
+        result = list(drive.descendants_from_inventory(items, "root", "Root"))
+        self.assertEqual([item["id"] for item in result], ["folder", "file"])
+        self.assertEqual(result[1]["original_path"], "Root/Nested/Fact.md")
+
     def test_note_review_and_materialization(self):
         with tempfile.TemporaryDirectory() as staging_value, tempfile.TemporaryDirectory() as repo_value:
             staging = Path(staging_value)

@@ -128,6 +128,56 @@ def walk_drive(service, root_id, root_name="00 - inbox"):
                 stack.append((item["id"], item["original_path"]))
 
 
+def list_all_visible(service):
+    """List visible Drive metadata in page-sized calls, without file downloads."""
+    token = None
+    while True:
+        result = service.files().list(
+            q="trashed = false",
+            pageSize=1000,
+            pageToken=token,
+            fields=("nextPageToken,files(id,name,mimeType,size,createdTime,modifiedTime,version,"
+                    "md5Checksum,webViewLink,parents,description)"),
+            supportsAllDrives=True,
+            includeItemsFromAllDrives=True,
+        ).execute()
+        yield from result.get("files", [])
+        token = result.get("nextPageToken")
+        if not token:
+            break
+
+
+def descendants_from_inventory(items, root_id, root_name="00 - inbox"):
+    """Resolve one root's descendants from a complete metadata inventory."""
+    children = {}
+    for raw in items:
+        item = dict(raw)
+        for parent_id in item.get("parents") or []:
+            children.setdefault(parent_id, []).append(item)
+
+    stack = [(root_id, root_name)]
+    seen = set()
+    while stack:
+        folder_id, folder_path = stack.pop()
+        if folder_id in seen:
+            continue
+        seen.add(folder_id)
+        entries = sorted(children.get(folder_id, []), key=lambda item: (item.get("name", "").casefold(), item["id"]))
+        folders = []
+        for raw in entries:
+            item = dict(raw)
+            item["parent_folder_id"] = folder_id
+            item["original_path"] = f"{folder_path}/{item.get('name', item['id'])}"
+            yield item
+            if item.get("mimeType") == FOLDER_MIME:
+                folders.append((item["id"], item["original_path"]))
+        stack.extend(reversed(folders))
+
+
+def walk_drive_bulk(service, root_id, root_name="00 - inbox"):
+    return descendants_from_inventory(list_all_visible(service), root_id, root_name)
+
+
 def download_bytes(service, file_id, export_mime=None, max_bytes=25_000_000):
     from googleapiclient.http import MediaIoBaseDownload
     request = service.files().export_media(fileId=file_id, mimeType=export_mime) if export_mime else service.files().get_media(fileId=file_id)
@@ -285,6 +335,7 @@ def main():
     parser.add_argument("--max-bytes", type=int, default=25_000_000)
     parser.add_argument("--max-chars", type=int, default=500_000)
     parser.add_argument("--manifest-only", action="store_true")
+    parser.add_argument("--bulk-list", action="store_true", help="build the root tree from one paginated metadata inventory")
     args = parser.parse_args()
 
     from google.oauth2.credentials import Credentials
@@ -304,7 +355,8 @@ def main():
 
     credentials = Credentials.from_authorized_user_file(args.token, ["https://www.googleapis.com/auth/drive.readonly"])
     service = build("drive", "v3", credentials=credentials, cache_discovery=False)
-    items = list(walk_drive(service, args.folder_id, args.folder_name))
+    walker = walk_drive_bulk if args.bulk_list else walk_drive
+    items = list(walker(service, args.folder_id, args.folder_name))
     for item in items:
         fp = fingerprint(item)
         current[item["id"]] = {"fingerprint": fp, "path": item.get("original_path"), "mime_type": item.get("mimeType")}
