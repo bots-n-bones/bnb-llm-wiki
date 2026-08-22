@@ -7,6 +7,8 @@ type: canon
 status: active
 canonical: true
 owner: ilya
+created: 2026-08-22
+updated: 2026-08-22
 confidentiality: internal
 summary: Product requirements for Hermes Workspace, including chat, files, terminal, knowledge, jobs, swarm orchestration, and integrations.
 aliases: [PRD Hermes Workspace, Hermes Workspace requirements]
@@ -22,7 +24,7 @@ source:
   original_title: PRD.docx
   modified_time: 2026-08-22T07:02:53.000Z
   checksum: 353c5b220d4f3b7e0ceb76ba627aa30c37111df7b70cf46303782f8699684a1a
-  revision_id: 3
+  revision_id: "3"
 provenance:
   method: reviewed-owner-approved-conversion-from-drive-docx
   captured_at: 2026-08-22T07:14:35Z
