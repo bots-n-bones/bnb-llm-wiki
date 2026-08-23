@@ -28,3 +28,5 @@ build/
 *.webp
 *.sqlite
 *.sqlite3
+
+knowledge.sqlite.previous
