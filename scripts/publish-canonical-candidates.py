@@ -32,6 +32,7 @@ REQUEST_SCHEMA = "hermes-kb-canonical-release/v1"
 ALLOWED_INTAKE_STATUSES = {
     "approved-for-canonical-promotion",
     "materialized-canonical-candidate",
+    "published-canonical",
 }
 SAFE_PATH = re.compile(
     r"^projects/(svmpx|hello-i-am|content-os|bots-n-bones|quntm|ursus|shared)/"
@@ -224,8 +225,13 @@ def main() -> int:
     requests = sorted(TASKS.glob("kb-publication-*/bnb-llm-wiki-release-candidate/release-request.json"))
     summary = []
     for request_path in requests:
-        if request_path.with_name("release-result.json").exists():
-            continue
+        result_path = request_path.with_name("release-result.json")
+        if result_path.exists():
+            try:
+                if json.loads(result_path.read_text(encoding="utf-8")).get("status") == "published":
+                    continue
+            except (OSError, json.JSONDecodeError):
+                pass
         try:
             summary.append({"request": str(request_path), **publish(request_path, intake_map)})
         except Exception as error:
