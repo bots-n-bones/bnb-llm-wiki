@@ -11,8 +11,8 @@ created: 2026-08-23
 updated: 2026-08-23
 confidentiality: internal
 summary: Canonical synthesis of the Hermes Drive-to-Wiki knowledge-base architecture diagram.
-aliases: [Knowledge Base Scheme, Hermes KB Scheme, Hermes knowledge architecture, Drive-to-Wiki architecture]
-tags: [hermes, knowledge-base, google-drive, wiki, markdown, intake, architecture]
+aliases: [Knowledge Base Scheme, Hermes KB Scheme, Hermes knowledge architecture, Drive-to-Wiki architecture, Hermes Figma scheme, Figma scheme PNG]
+tags: [hermes, knowledge-base, google-drive, wiki, markdown, intake, architecture, figma-export, png-scheme]
 source_ids: [src-intake-shared-17sdh6dp]
 source:
   kind: google-drive
@@ -39,6 +39,12 @@ provenance:
 ## Canonical statement
 
 Hermes uses a hybrid Drive-to-Wiki knowledge architecture. Google Drive remains the storage layer for original files, media, client materials and working documents. The curated Markdown Wiki is the knowledge layer used by Hermes, agents and search as the canonical source for durable answers.
+
+## Documentation status
+
+This page is the canonical documentation page for the Hermes knowledge-base architecture scheme that was supplied as `Knowledge Base Scheme.png`. The original registered artifact remains the Drive PNG source; the Wiki page is the reviewed documentation layer used for retrieval and citation.
+
+The source artifact is treated as a Figma-style scheme/export for documentation discovery and aliases. The released knowledge base has not registered a separate native Figma file or Figma URL for this scheme; if a native Figma source is later supplied, it must be added as a separate source record before being cited as the original design file.
 
 ## Architecture
 

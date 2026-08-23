@@ -11,7 +11,7 @@ confidentiality: internal
 summary: "Registered image source from Drive Inbox showing the Hermes / knowledge-base architecture scheme."
 created: 2026-08-23
 updated: 2026-08-23
-tags: ["inbox", "source", "google-drive", "png", "hermes", "knowledge-base"]
+tags: ["inbox", "source", "google-drive", "png", "hermes", "knowledge-base", "figma-export", "documentation"]
 source:
   kind: "google-drive"
   drive_file_id: "17SdhLjdA6dpMfco6D90XNy_fMMJDZtTz"
