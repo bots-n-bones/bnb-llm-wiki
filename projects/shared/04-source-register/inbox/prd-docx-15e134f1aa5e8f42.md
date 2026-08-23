@@ -9,8 +9,8 @@ canonical: false
 owner: ilya
 confidentiality: internal
 summary: "Registered source from the governed Hermes intake pipeline."
-created: 2026-08-22
-updated: 2026-08-22
+created: 2026-08-23
+updated: 2026-08-23
 tags: ["inbox", "source", "google-drive"]
 source:
   kind: "google-drive"
@@ -20,9 +20,9 @@ source:
   original_path: "00 - inbox/PRD.docx"
   original_title: "PRD.docx"
   mime_type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-  modified_time: "2026-08-22T07:02:53.000Z"
-  checksum: "sha256:353c5b220d4f3b7e0ceb76ba627aa30c37111df7b70cf46303782f8699684a1a"
-  revision_id: "3"
+  modified_time: "2026-08-23T11:42:55.541Z"
+  checksum: "sha256:227908d66b809fe39a28f28424d91b19055113a481723ceeae9f7c064fde7d2e"
+  revision_id: "6"
 ---
 
 # Source: PRD.docx
@@ -31,7 +31,7 @@ source:
 
 - Intake ID: `drive-1Ts3cySKl3KMmSrHEToRwY6xrJ-47VB_6`
 - Original path: `00 - inbox/PRD.docx`
-- Captured: `2026-08-22T07:14:35Z`
+- Captured: `2026-08-23T11:45:29Z`
 - Extraction: `extracted`
 
 ## Authority
