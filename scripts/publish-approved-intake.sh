@@ -10,6 +10,8 @@ test -d "$ROOT/.git"
 test -d "$STAGING"
 test -r "$DEPLOY_KEY"
 
+export GIT_SSH_COMMAND="ssh -i $DEPLOY_KEY -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
+
 git -C "$ROOT" fetch origin main
 git -C "$ROOT" reset --hard origin/main
 python3 "$ROOT/scripts/manage-intake.py" materialize --staging "$STAGING" --repo "$ROOT"
@@ -40,6 +42,5 @@ trap - EXIT HUP INT TERM
 git -C "$ROOT" config user.name "Hermes Knowledge Bot"
 git -C "$ROOT" config user.email "bots-n-bones@users.noreply.github.com"
 git -C "$ROOT" commit -m "knowledge: publish approved intake drafts"
-GIT_SSH_COMMAND="ssh -i $DEPLOY_KEY -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new" \
-  git -C "$ROOT" push git@github.com:bots-n-bones/bnb-llm-wiki.git HEAD:main
+git -C "$ROOT" push git@github.com:bots-n-bones/bnb-llm-wiki.git HEAD:main
 /bin/sh "$ROOT/scripts/sync-server-release.sh" "$ROOT"

@@ -2,9 +2,13 @@
 set -eu
 
 ROOT=${1:-/opt/knowledge/bnb-llm-wiki}
+DEPLOY_KEY=${BNB_WIKI_DEPLOY_KEY:-/root/.ssh/bnb-wiki-deploy}
 DATABASE="$ROOT/knowledge.sqlite"
 PREVIOUS_DATABASE="$ROOT/knowledge.sqlite.previous"
 PREVIOUS_REF=$(git -C "$ROOT" rev-parse HEAD)
+
+test -r "$DEPLOY_KEY"
+export GIT_SSH_COMMAND="ssh -i $DEPLOY_KEY -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
 
 if [ -f "$DATABASE" ]; then
   cp -p "$DATABASE" "$PREVIOUS_DATABASE"
