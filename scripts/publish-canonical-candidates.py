@@ -7,6 +7,7 @@ import json
 import os
 import re
 import shutil
+import stat
 import subprocess
 import sys
 import tempfile
@@ -66,12 +67,14 @@ def run(args: list[str], *, cwd: Path | None = None, capture: bool = False) -> s
 
 def atomic_json(path: Path, payload: dict) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    owner = path.stat() if path.exists() else path.parent.stat()
+    existing = path.stat() if path.exists() else None
+    owner = existing or path.parent.stat()
+    mode = stat.S_IMODE(existing.st_mode) if existing else 0o644
     with tempfile.NamedTemporaryFile("w", encoding="utf-8", dir=path.parent, delete=False) as handle:
         json.dump(payload, handle, ensure_ascii=False, indent=2)
         handle.write("\n")
         temporary = Path(handle.name)
-    os.chmod(temporary, 0o644)
+    os.chmod(temporary, mode)
     if os.geteuid() == 0:
         os.chown(temporary, owner.st_uid, owner.st_gid)
     os.replace(temporary, path)
