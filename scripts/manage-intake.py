@@ -30,10 +30,13 @@ def slug(value):
 
 def atomic_write(path, content, mode=0o600):
     path.parent.mkdir(parents=True, exist_ok=True)
+    owner = path.stat() if path.exists() else path.parent.stat()
     with tempfile.NamedTemporaryFile(prefix=f".{path.name}.", dir=path.parent, delete=False, mode="w", encoding="utf-8") as tmp:
         tmp.write(content)
         temporary = Path(tmp.name)
     os.chmod(temporary, mode)
+    if os.geteuid() == 0:
+        os.chown(temporary, owner.st_uid, owner.st_gid)
     os.replace(temporary, path)
 
 

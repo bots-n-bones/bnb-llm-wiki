@@ -66,11 +66,14 @@ def run(args: list[str], *, cwd: Path | None = None, capture: bool = False) -> s
 
 def atomic_json(path: Path, payload: dict) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
+    owner = path.stat() if path.exists() else path.parent.stat()
     with tempfile.NamedTemporaryFile("w", encoding="utf-8", dir=path.parent, delete=False) as handle:
         json.dump(payload, handle, ensure_ascii=False, indent=2)
         handle.write("\n")
         temporary = Path(handle.name)
     os.chmod(temporary, 0o644)
+    if os.geteuid() == 0:
+        os.chown(temporary, owner.st_uid, owner.st_gid)
     os.replace(temporary, path)
 
 

@@ -1,5 +1,6 @@
 import importlib.util
 import json
+import stat
 import subprocess
 import sys
 import tempfile
@@ -17,9 +18,21 @@ def load_script(name, module_name):
 
 
 drive = load_script("drive-inbox-intake.py", "drive_inbox_intake")
+manage = load_script("manage-intake.py", "manage_intake")
 
 
 class IntakeTests(unittest.TestCase):
+    def test_manage_atomic_write_preserves_owner_and_applies_private_mode(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "pending.json"
+            path.write_text("old", encoding="utf-8")
+            before = path.stat()
+            manage.atomic_write(path, "new")
+            after = path.stat()
+            self.assertEqual((after.st_uid, after.st_gid), (before.st_uid, before.st_gid))
+            self.assertEqual(stat.S_IMODE(after.st_mode), 0o600)
+            self.assertEqual(path.read_text(encoding="utf-8"), "new")
+
     def test_project_classification(self):
         self.assertEqual(drive.project_for("00 - inbox/temp", "Content plan.xlsx"), "content-os")
         self.assertEqual(drive.project_for("00 - inbox/temp", "Conuent plan.xlsx", "content calendar workflow"), "content-os")

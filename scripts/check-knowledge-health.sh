@@ -42,5 +42,16 @@ if payload.get("error_count", 0):
 PY
 fi
 
+docker exec -i -u hermes "$CONTAINER" python3 - "$STAGING/pending" <<'PY' || fail "pending intake packages unreadable"
+import json
+import pathlib
+import sys
+
+root = pathlib.Path(sys.argv[1])
+for path in root.glob("*.json"):
+    with path.open(encoding="utf-8") as handle:
+        json.load(handle)
+PY
+
 curl -fsS --max-time 15 -o /dev/null "$PUBLIC_URL" || fail "public route failed"
 echo "OK: container, gateway, published Wiki, GitHub release access, Drive intake and public route"
