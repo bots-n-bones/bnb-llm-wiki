@@ -1,0 +1,5 @@
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+# Publishes only clean, validated canonical candidates tied to owner-approved intake IDs.
+*/5 * * * * root /usr/bin/flock -n /var/lock/hermes-bnb-canonical-publish.lock /usr/bin/python3 /var/lib/docker/volumes/hermes-codex-workspace_hermes-knowledge/_data/bnb-llm-wiki/scripts/publish-canonical-candidates.py >> /var/log/hermes-bnb-canonical-publish.log 2>&1

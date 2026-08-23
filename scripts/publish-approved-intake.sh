@@ -14,6 +14,7 @@ export GIT_SSH_COMMAND="ssh -i $DEPLOY_KEY -o IdentitiesOnly=yes -o StrictHostKe
 
 git -C "$ROOT" fetch origin main
 git -C "$ROOT" reset --hard origin/main
+git -C "$ROOT" clean -fd -- projects
 python3 "$ROOT/scripts/manage-intake.py" materialize --staging "$STAGING" --repo "$ROOT"
 
 git -C "$ROOT" add projects
@@ -30,7 +31,17 @@ restore_index() {
     fi
   done
 }
-trap restore_index EXIT HUP INT TERM
+rollback() {
+  code=$?
+  trap - EXIT HUP INT TERM
+  restore_index
+  if [ "$code" -ne 0 ]; then
+    git -C "$ROOT" reset --hard origin/main >/dev/null 2>&1 || true
+    git -C "$ROOT" clean -fd -- projects >/dev/null 2>&1 || true
+  fi
+  exit "$code"
+}
+trap rollback EXIT HUP INT TERM
 for name in knowledge.sqlite knowledge.sqlite.previous; do
   if [ -f "$ROOT/$name" ]; then
     mv "$ROOT/$name" "$INDEX_HOLD/$name"

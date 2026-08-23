@@ -5,6 +5,7 @@
 node_modules/
 .local-index/
 .published-index/
+__pycache__/
 dist/
 build/
 *.zip
