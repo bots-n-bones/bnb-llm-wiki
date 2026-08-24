@@ -32,7 +32,7 @@ TEXT_MIMES = {
     "text/csv", "text/markdown", "text/plain", "text/tab-separated-values",
 }
 MEDIA_PREFIXES = ("audio/", "image/", "video/")
-PROJECTS = ("svmpx", "hello-i-am", "content-os", "bots-n-bones", "quntm", "ursus", "shared")
+PROJECTS = ("svmpx", "hello-i-am", "content-os", "bots-n-bones", "quntm", "ursus", "hermes", "shared")
 PROJECT_HINTS = {
     "svmpx": ("svmpx", "savimpex", "ddp", "source offer", "client proposal"),
     "hello-i-am": ("hello i am", "hello-iam", "helloiam", "instagram launch"),
@@ -40,6 +40,7 @@ PROJECT_HINTS = {
     "bots-n-bones": ("bots-n-bones", "bots n bones", "bnb"),
     "quntm": ("quntm", "quantum"),
     "ursus": ("ursus",),
+    "hermes": ("hermes", "гермес"),
 }
 RESTRICTED_HINTS = ("password", "secret", "credential", "private key", "api key", "token")
 

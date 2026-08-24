@@ -10,7 +10,7 @@ const knowledgeRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)),
 const validator = path.join(knowledgeRoot, 'scripts', 'validate.mjs')
 const portfolioProjects = [
   'svmpx', 'hello-i-am', 'content-os', 'bots-n-bones', 'quntm', 'ursus',
-  'shared',
+  'hermes', 'shared',
 ]
 const requiredProjectLayers = [
   '00-canon', '01-knowledge', '02-decisions', '03-sops',

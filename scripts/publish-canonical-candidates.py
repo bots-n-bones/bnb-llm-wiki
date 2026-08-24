@@ -36,7 +36,7 @@ ALLOWED_INTAKE_STATUSES = {
     "published-canonical",
 }
 SAFE_PATH = re.compile(
-    r"^projects/(svmpx|hello-i-am|content-os|bots-n-bones|quntm|ursus|shared)/"
+    r"^projects/(svmpx|hello-i-am|content-os|bots-n-bones|quntm|ursus|hermes|shared)/"
     r"(00-canon|01-knowledge|02-decisions|03-sops|04-source-register)/.+\.md$"
 )
 COMMIT = re.compile(r"^[0-9a-f]{40}$")
