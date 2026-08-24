@@ -10,7 +10,7 @@ owner: ilya
 confidentiality: internal
 summary: Production commands and gates for Drive Inbox and Hermes message ingestion.
 created: 2026-08-21
-updated: 2026-08-21
+updated: 2026-08-24
 tags: [inbox, drive, ingestion, release, rollback]
 ---
 
@@ -62,3 +62,25 @@ The host publisher notices approved packages, materializes source records plus
 The release worker then rebuilds SQLite and performs a retrieval smoke test.
 If any release step fails, the deployment clone and database are restored to
 their previous known-good versions.
+
+## Post-canonical Drive housekeeping
+
+Drive intake remains read-only through extraction, drafting, review, and the
+canonical Git release. After the canonical release and index refresh have
+completed successfully, a separate worker may move the original Drive file:
+
+- the intake must have `status: published-canonical` and a stable
+  `drive_file_id`;
+- the current file parent must be inside canonical `00 - inbox`;
+- the destination must be an explicitly reviewed project-folder ID under the
+  canonical `01 - projects` folder;
+- ambiguous, missing, out-of-root, trashed, or multi-parent sources are blocked
+  without mutation;
+- the source record keeps its original path, Drive file ID, checksum, revision,
+  and stable Drive URL as historical provenance;
+- the move receipt is stored privately in the intake package under
+  `drive_move`; failures never roll back the canonical release.
+
+`scripts/move-published-drive-intake.py` performs the mutation independently.
+`config/drive-project-destinations.json` is the reviewed allowlist. Projects
+without an unambiguous destination remain disabled until owner review.

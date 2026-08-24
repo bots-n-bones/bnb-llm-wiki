@@ -46,6 +46,36 @@ def now() -> str:
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
 
+def mark_published_intake(item: dict, result: dict) -> None:
+    """Finalize canonical state and enqueue Drive housekeeping without mutation."""
+    item["status"] = "published-canonical"
+    item["canonical_published_at"] = result["published_at"]
+    item["canonical_release_commit"] = result["release_commit"]
+    if item.get("drive_file_id"):
+        item.setdefault("drive_move", {
+            "status": "pending",
+            "enqueued_at": result["published_at"],
+            "attempts": 0,
+        })
+
+
+def finalize_release_state(
+    candidate: Path,
+    request: dict,
+    intake_map: dict[str, tuple[Path, dict]],
+    result: dict,
+    *,
+    writer=None,
+) -> None:
+    """Persist all intake finalization before the durable published receipt."""
+    writer = writer or atomic_json
+    for intake_id in request["intake_ids"]:
+        path, item = intake_map[str(intake_id)]
+        mark_published_intake(item, result)
+        writer(path, item)
+    writer(candidate / "release-result.json", result)
+
+
 def run(args: list[str], *, cwd: Path | None = None, capture: bool = False) -> str:
     result = subprocess.run(
         args,
@@ -211,13 +241,7 @@ def publish(request_path: Path, intake_map: dict[str, tuple[Path, dict]]) -> dic
             "release_commit": release_commit,
             "files": files,
         }
-        atomic_json(candidate / "release-result.json", result)
-        for intake_id in request["intake_ids"]:
-            path, item = intake_map[str(intake_id)]
-            item["status"] = "published-canonical"
-            item["canonical_published_at"] = result["published_at"]
-            item["canonical_release_commit"] = release_commit
-            atomic_json(path, item)
+        finalize_release_state(candidate, request, intake_map, result)
         return result
     except Exception:
         run(["git", "-c", f"safe.directory={ROOT}", "-C", str(ROOT), "reset", "--hard", "origin/main"])

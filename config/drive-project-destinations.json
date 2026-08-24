@@ -1,0 +1,12 @@
+{
+  "schema": "hermes-kb-drive-destinations/v1",
+  "canonical_root_id": "1VfCO8UnD0Qq4D6k-f-HTk7ELgy9j0XOg",
+  "inbox_folder_id": "10Xg3r5UUCygMiSWpog3z4Vima-b2a85N",
+  "projects_folder_id": "1irV6M-FwMH-KHNAtDw5xHX5ioHgwTlgd",
+  "projects": {
+    "bots-n-bones": "1rY7SsqnQXJJUZuzS6Pbqymtzo8zGivIR",
+    "hermes": "1vMt6RJwFOg4H7EEhCfhtfY7Pt6bwQ8qc",
+    "quntm": "1PD8o3sb5zjweZq2EN_5DE3sra30HnXdj"
+  },
+  "notes": "Only unambiguous project folders resolved as direct descendants of the canonical 01 - projects folder are enabled. Projects with duplicate or missing Drive folders remain blocked until owner review."
+}

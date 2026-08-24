@@ -1,0 +1,5 @@
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+# Moves only canonically published Drive sources from governed Inbox to allowlisted project folders.
+*/5 * * * * root /usr/bin/flock -n /var/lock/hermes-bnb-drive-post-publish.lock /usr/bin/docker exec -u hermes hermes-codex-workspace-hermes-agent-1 /bin/sh /opt/knowledge/bnb-llm-wiki/scripts/run-drive-post-publish.sh >> /var/log/hermes-bnb-drive-post-publish.log 2>&1
