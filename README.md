@@ -20,8 +20,10 @@ video, and archival exports.
 
 ## Safety boundary
 
-- The existing Google Drive tree is an immutable source.
-- No source file is moved, renamed, replaced, or deleted by KB V2 ingestion.
+- Google Drive is read-only during inventory, extraction, review, and drafting.
+- A narrow post-publication worker may move an original file only after its
+  intake is successfully published as canonical, only from governed `00 - inbox`
+  scope to an allowlisted project folder under the canonical Drive root.
 - Source records refer to originals by stable Google Drive file ID and URL.
 - Generated text is first stored in private server staging. Approved drafts are
   added under the project knowledge tree and never overwrite a source.
@@ -57,4 +59,7 @@ stores packages privately under `/opt/data/knowledge-intake`.
 Publication is a separate gate. Ilya must explicitly approve an intake package;
 only then can the release worker create a source record and a non-canonical
 draft, validate the repository, push the revision and rebuild the SQLite index.
+After a later owner-approved canonical release succeeds, Drive housekeeping is
+queued independently. A move failure is recorded in private intake state and
+cannot roll back or invalidate the published canonical revision.
 See [[00-governance/intake-operations|Knowledge Intake Operations]].
