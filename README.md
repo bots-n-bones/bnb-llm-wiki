@@ -8,7 +8,7 @@ canonical: true
 owner: ilya
 confidentiality: internal
 created: 2026-08-19
-updated: 2026-08-21
+updated: 2026-08-24
 tags: [knowledge-base, governance]
 ---
 
@@ -43,7 +43,7 @@ Each portfolio project uses the same layers: `00-canon/`, `01-knowledge/`,
 ## Portfolio foundation
 
 The portfolio contains `svmpx`, `hello-i-am`, `content-os`, `bots-n-bones`,
-`quntm`, `ursus`, and cross-project `shared` knowledge. SVMPX has owner-approved
+`quntm`, `ursus`, `hermes`, and cross-project `shared` knowledge. SVMPX has owner-approved
 canon. Other projects contain registered evidence and non-canonical drafts that
 remain in the owner review queue.
 

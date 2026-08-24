@@ -16,7 +16,7 @@ SECRET_PATTERNS = (
     re.compile(r"-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----"),
     re.compile(r"(?i)(?:api[_ -]?key|secret|password|token)\s*[:=]\s*[^\s]{12,}"),
 )
-PROJECTS = ("svmpx", "hello-i-am", "content-os", "bots-n-bones", "quntm", "ursus", "shared")
+PROJECTS = ("svmpx", "hello-i-am", "content-os", "bots-n-bones", "quntm", "ursus", "hermes", "shared")
 
 
 def now():

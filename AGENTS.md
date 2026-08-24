@@ -8,7 +8,7 @@ canonical: true
 owner: ilya
 confidentiality: internal
 created: 2026-08-19
-updated: 2026-08-19
+updated: 2026-08-24
 tags: [agents, governance, safety]
 ---
 
@@ -37,7 +37,7 @@ This tree is a curated knowledge repository, not a mirror of Google Drive.
 ## Portfolio scope
 
 The governed portfolio contains `svmpx`, `hello-i-am`, `content-os`,
-`bots-n-bones`, `quntm`, `ursus`, and the cross-project `shared` layer. SVMPX
+`bots-n-bones`, `quntm`, `ursus`, `hermes`, and the cross-project `shared` layer. SVMPX
 is the only project with curated pilot evidence today. Until sources are
 reviewed and an owner approves promotion, every generated or curated project
 page remains `status: draft` and `canonical: false`.
